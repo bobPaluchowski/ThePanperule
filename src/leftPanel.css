@@ -1,0 +1,133 @@
+/* Left Sidenav Styles */
+.leftSidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.leftSidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.leftSidenav a:hover {
+  color: #f1f1f1;
+}
+
+.leftSidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.twoBtns {
+  display: flex;
+}
+
+.twoBtns > button {
+  color: white;
+  background-color: black;
+}
+
+.leftBottomBtns {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.leftBottomBtns > button {
+   color: white;
+   background-color: black;
+}
+
+.leftPanelContent {
+  min-height: 80vh;
+}
+
+.leftPanelContent > textarea {
+  color: white;
+  background-color: black;
+  outline: none;
+  height: 100%;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  border: none;
+  color: black;
+  background-color: white;
+  border-radius: 20px;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px auto;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+button:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+#leftSidenav .twoBtns button.toggleBtn {
+  background-color: #008CBA !important;
+  color: white !important;
+}
+
+.add {
+  text-transform: uppercase;
+}
+
+#todo {
+  /* Ensure the checkbox has a fixed size and doesn't grow */
+  flex-shrink: 0;
+  /* Optional: Adjust size for better visibility */
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  accent-color: black;
+}
+
+#todoInput {
+  flex-grow: 1;
+  flex-basis: 0;
+  width: 85%;
+  padding: 12px;
+  margin: 10px 5px;
+  /* margin-right: 5px; */
+  box-sizing: border-box;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.todoFormPanel {
+  min-height: 80vh;
+  background-color: black;
+  border-radius: 10px;
+}
+
+.todoForm {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+}
+

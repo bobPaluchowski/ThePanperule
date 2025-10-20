@@ -1,0 +1,63 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- an icon for the browser tab -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/renderer.js"></script>
+    <title>ThePanperule</title>
+  </head>
+  <body>
+
+   <!-- left panel --> 
+   <div id="leftSidenav" class="leftSidenav">
+
+    <a href="javascript:void(0)" class="closebtn">&times;</a>
+
+      <!-- top two buttons: todo & note -->
+      <div class="leftInsidePanel">
+      <div class="twoBtns">
+        <button class="todoBtn">ToDo</button>
+        <button class="noteBtn">Note</button>
+      </div>
+
+        <!-- input area for todos & notes -->
+        <div id="notePanel" class="leftPanelContent">
+         <textarea rows="40" cols="20"></textarea>
+        </div>
+
+        <!-- todo form -->
+        <div id="todoFormPanel" class="todoFormPanel">
+          <form action="" method="get" class="todoForm">
+            <!-- <input type="checkbox" id="todo" name="todo" value="todo"> -->
+            <input type="text" name="todoInput" id="todoInput" placeholder="what's next..." required />
+          </form>
+        </div>
+
+        <!-- bottom buttons -->
+        <div class="leftBottomBtns">
+         <button class="mic">&#127897;</button>
+          <button class="exclamation">!</button>
+          <button class="clip">&#128206;</button>
+          <button class="add">Add</button>
+        </div>
+      </div>
+
+       </div>
+   <div id="main" class="main">
+    <!-- <span style="font-size:30px;cursor:pointer">&#9776;</span> -->
+    <span style="font-size:30px;cursor:pointer">></span>
+    <!-- <span style="font-size:30px;cursor:pointer;float:right;">&#9776;</span> -->
+    <h1 id="title">ThePanperule</h1>
+    <button class="button" type="button">Click Me</button>
+   </div>
+   <!-- <div id="rightSidenav" class="rightSidenav"> -->
+   <!--  <a href="javascript:void(0)" class="closebtn">&times;</a> -->
+   <!--  <a href="#">Home</a> -->
+   <!--  <a href="#">About</a> -->
+   <!--  <a href="#">Contact</a> -->
+   <!-- </div> -->
+  </body>
+</html>
+
