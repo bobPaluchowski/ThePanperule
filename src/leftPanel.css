@@ -1,5 +1,25 @@
+/* Main content */
+#main {
+  flex: 1 1 0;
+  min-width: 0;
+  transition: all 0.25s;
+}
+
+#leftSidenav.open {
+  width: 350px;
+}
+
+/* Main container */
+.mainContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
 /* Left Sidenav Styles */
 .leftSidenav {
+  transition: width 0.25s;
+  overflow: hidden;
   height: 100%;
   width: 0;
   position: fixed;
@@ -8,7 +28,6 @@
   left: 0;
   background-color: #111;
   overflow-x: hidden;
-  transition: 0.5s;
   padding-top: 60px;
 }
 
@@ -112,7 +131,6 @@ button:hover {
   width: 85%;
   padding: 12px;
   margin: 10px 5px;
-  /* margin-right: 5px; */
   box-sizing: border-box;
   color: white;
   background-color: black;
@@ -128,6 +146,8 @@ button:hover {
 .todoForm {
   display: flex;
   align-items: center;
-  /* gap: 10px; */
 }
 
+.show {
+  display: none;
+}

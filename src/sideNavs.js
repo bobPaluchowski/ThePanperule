@@ -1,11 +1,11 @@
 function openNav() {
-  document.getElementById('leftSidenav').style.width = '350px';
-  document.getElementById('main').style.marginLeft = '350px';
+  document.getElementById('leftSidenav').classList.add('open');
+  // document.getElementById('main').style.marginLeft = '350px';
 }
 
 function closeNav() {
-  document.getElementById('leftSidenav').style.width = '0';
-  document.getElementById('main').style.marginLeft = '0';
+  document.getElementById('leftSidenav').classList.remove('open');
+  // document.getElementById('main').style.marginLeft = '0';
 }
 
 function openRightNav() {
@@ -16,10 +16,6 @@ function openRightNav() {
 function closeRightNav() {
   document.getElementById('rightSidenav').style.width = '0';
   document.getElementById('main').style.marginRight = '0';
-}
-
-function changeText() {
-  document.getElementById('title').innerText = "And now for soething completelly different";
 }
 
 function clickedBtn(e) {
@@ -34,41 +30,83 @@ function clickedBtn(e) {
   // console.log("toggleBtn class added:", e.currentTarget.classList.contains('toggleBtn'));
 }
 
+let activeFormId = "todoForm";
+
 function showTodoPanel() {
   const todo = document.getElementById('todoFormPanel');
   const note = document.getElementById('notePanel');
-  note.style.display = "none";
-  todo.style.display = "block";
+  todo.classList.remove('show');
+  note.classList.add('show');
+  activeFormId = "todoForm";
 }
 
 function showNotePanel() {
   const todo = document.getElementById('todoFormPanel');
   const note = document.getElementById('notePanel');
-  note.style.display = "block";
-  todo.style.display = "none";
-
+  todo.classList.add('show');
+  note.classList.remove('show');
+  activeFormId = "noteForm";
 }
-// const p1 = document.getElementById("p1");
-// const button = document.querySelector("button");
-//
-// p1.addEventListener("click", () => {
-//   p1.style.background = "green";
-// });
-// button.addEventListener("click", () => {
-//   p1.style.background = "white";
-// });
+
+// ADD button handler
+function saveActiveForm(e) {
+// Find the currently visible form
+  const todoPanel = document.getElementById('todoFormPanel');
+  const notePanel = document.getElementById('notePanel');
+  let activeForm = "todoForm";
+
+ if (!todoPanel.classList.contains('show')) {
+    // Todo panel is visible
+    activeForm = document.getElementById('todoForm');
+    console.log("Submitting todo form");
+  } else if (!notePanel.classList.contains('show')) {
+    // Note panel is visible
+    activeForm = document.querySelector('#notePanel textarea');
+    console.log("Submitting note form");
+  }
+  
+  if (activeForm) {
+    // For todo form, submit it
+    if (activeForm.tagName === 'FORM') {
+      // activeForm.submit();
+    todoForm.reset();
+    }
+    // For note textarea, you might want to save the content instead
+    else if (activeForm.tagName === 'TEXTAREA') {
+      console.log("Note content:", activeForm.value);
+    activeForm.value = '';
+      // Handle note saving here
+    }
+  } else {
+    console.log("No active form found");
+  }
+
+  // const activeForm = document.getElementById(activeFormId);
+  // if (activeForm) {
+  //   // activeForm.submit();
+  //   console.log(activeForm + "submitted");
+  //
+  // } else {
+  //   console.log(activeForm + "not submitted");
+  // }
+}
 
 // Attach event listeners after the DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
 
-  setTimeout(() => {
- // Only attach toggle functionality to ToDo/Note buttons in left panel
-const todoNoteBtns = document.querySelectorAll("#leftSidenav .twoBtns button");
-  // console.log("Found buttons", todoNoteBtns.length);
+  const addBtn = document.querySelector('.add');
+  if (addBtn) {
+    addBtn.addEventListener('click', saveActiveForm);
+  }
 
-  todoNoteBtns.forEach(button => {
-    button.addEventListener('click', clickedBtn);
-  });
+  setTimeout(() => {
+    // Only attach toggle functionality to ToDo/Note buttons in left panel
+    const todoNoteBtns = document.querySelectorAll("#leftSidenav .twoBtns button");
+    // console.log("Found buttons", todoNoteBtns.length);
+
+    todoNoteBtns.forEach(button => {
+      button.addEventListener('click', clickedBtn);
+    });
   }, 100);
 
   // Note panel toggle
@@ -83,29 +121,14 @@ const todoNoteBtns = document.querySelectorAll("#leftSidenav .twoBtns button");
     showTodoInput.addEventListener('click', showTodoPanel);
   }
 
-    // Left Sidenav Toggle
-    const openLeftBtn = document.querySelector('#main > span:first-child');
-    if (openLeftBtn) {
-        openLeftBtn.addEventListener('click', openNav);
-    }
-    const closeLeftBtn = document.querySelector('#leftSidenav .closebtn');
-    if (closeLeftBtn) {
-        closeLeftBtn.addEventListener('click', closeNav);
-    }
-
-    // Right Sidenav Toggle
-    const openRightBtn = document.querySelector('#main > span:last-of-type');
-    if (openRightBtn) {
-        openRightBtn.addEventListener('click', openRightNav);
-    }
-    const closeRightBtn = document.querySelector('#rightSidenav .closebtn');
-    if (closeRightBtn) {
-        closeRightBtn.addEventListener('click', closeRightNav);
-    }
-
-    // Button
-    const changeTitle = document.querySelector('.button');
-  if (changeTitle) {
-    changeTitle.addEventListener('click', changeText);
+  // Left Sidenav Toggle
+  const openLeftBtn = document.querySelector('#main > span:first-child');
+  if (openLeftBtn) {
+    openLeftBtn.addEventListener('click', openNav);
   }
+  const closeLeftBtn = document.querySelector('#leftSidenav .closebtn');
+  if (closeLeftBtn) {
+    closeLeftBtn.addEventListener('click', closeNav);
+  }
+
 });

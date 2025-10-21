@@ -14,3 +14,7 @@ This project is in very early stages of development and isn't ready to be run.
 ### October, 20, 2025
 
 Working on UI.
+
+### October, 21, 2025
+
+Added saving form function to a ADD button based on which form is active
