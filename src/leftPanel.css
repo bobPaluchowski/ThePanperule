@@ -26,7 +26,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #303030; /* Darker gray for the bar itself */
   overflow-x: hidden;
   padding-top: 60px;
 }
@@ -58,7 +58,7 @@
 
 .twoBtns > button {
   color: white;
-  background-color: black;
+  background-color: #1a1a1a;
 }
 
 .leftBottomBtns {
@@ -67,8 +67,45 @@
 }
 
 .leftBottomBtns > button {
-   color: white;
-   background-color: black;
+  color: white;
+  background-color: #008CBA;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px; /* Added for a softer look */
+  /* 1. Full Width and Margin */
+  width: calc(100% - 20px); /* Calculate 100% minus the left and right margin (10px + 10px) */
+  margin: 10px auto; /* 10px top/bottom margin, 'auto' centers it horizontally */
+  box-sizing: border-box; /* Ensures padding/border are included in the 100% width */
+  /* 1. Set up the transition for smoothness */
+  /* This makes all changes (color, transform, etc.) happen over 0.3 seconds */
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover State */
+.leftBottomBtns > button:hover {
+    /* 2. Gentle Scale */
+    /* Scales the button up by 3% (1.03) */
+    transform: scale(1.03); 
+    
+    /* 3. Color Change for Visual Feedback */
+    /* A slightly darker or brighter shade of blue for contrast */
+    background-color: #007bb5; /* Slightly darker blue */
+    
+    /* 4. Optional: Subtle Shadow for 'Lifted' Effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Active State (when the user clicks/holds the button) */
+.leftBottomBtns > button:active {
+    /* Scale down slightly to give a "press" feeling */
+    transform: scale(0.98); 
+    background-color: #006a96; /* Even darker blue */
 }
 
 .leftPanelContent {
@@ -77,7 +114,7 @@
 
 .leftPanelContent > textarea {
   color: white;
-  background-color: black;
+  background-color: #303030;
   outline: none;
   height: 100%;
   width: 100%;
@@ -133,13 +170,13 @@ button:hover {
   margin: 10px 5px;
   box-sizing: border-box;
   color: white;
-  background-color: black;
+  background-color: #303030;
   border-radius: 5px;
 }
 
 .todoFormPanel {
   min-height: 80vh;
-  background-color: black;
+  background-color: #303030;
   border-radius: 10px;
 }
 
